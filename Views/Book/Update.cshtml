@@ -1,0 +1,31 @@
+﻿@model BookUpdateViewModel
+
+<h3 class="text-center">Kitap Güncelleme Sayfası</h3>
+
+<form method="post" asp-controller="Book" asp-action="Update">
+
+    <input asp-for="Id" type="hidden" />
+
+    <div>
+        <label>Kitap Adı</label>
+        <input asp-for="Name" type="text" class="form-control" />
+    </div>
+
+    <div>
+        <label>Sayfa Sayısı</label>
+        <input asp-for="PageCount" type="number" class="form-control" />
+    </div>
+
+    <div>
+        <label>Yazar</label>
+        <select asp-for="AuthorId" class="form-control" asp-items="@(new SelectList(ViewBag.Authors, "Id", "FullName"))"></select>
+    </div>
+
+    <div>
+        <label>Kitap Türü</label>
+        <select asp-for="BookTypeId" class="form-control" asp-items="@(new SelectList(ViewBag.BookTypes, "Id", "Name"))"></select>
+    </div>
+
+    <button type="submit" class="btn btn-success mt-2">Kaydet</button>
+
+</form>

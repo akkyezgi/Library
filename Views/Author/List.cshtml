@@ -1,0 +1,31 @@
+﻿@model List<AuthorListViewModel>
+
+
+<h3 class="text-center">Yazar Listeleme Sayfası</h3>
+
+<a asp-controller="Author" asp-action="Create" class="btn btn-warning fw-bold float-end mb-2">Yeni Ekle</a>
+
+<div>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th style="width:1000px">Yazar</th>
+                <th>Aksiyonlar</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FullName</td>
+                    <td>
+                        <a asp-controller="Author" asp-action="Update" asp-route-id="@item.Id" class="btn btn-primary">Güncelle</a>
+                        <a asp-controller="Author" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

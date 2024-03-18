@@ -1,0 +1,39 @@
+﻿@model List<BookListViewModel>
+
+<h3 class="text-center">Kitap Listeleme Sayfası</h3>
+<a asp-controller="Book" asp-action="Create" class="btn btn-warning mb-2 float-end">Yeni Ekle</a>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Kitap</th>
+            <th>Sayfa Sayısı</th>
+            <th>Yazar</th>
+            <th>Kitap türü</th>
+            <th>Aksiyon</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.PageCount</td>
+                <td>@item.AuthorFullName</td>
+                <td>@item.BookType</td>
+                <td>
+
+                    <a asp-controller="Book" asp-action="Update" asp-route-id="@item.Id" class="btn btn-primary">Düzenle</a>
+
+                    <a asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Sil</a>
+                    
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

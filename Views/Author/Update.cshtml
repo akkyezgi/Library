@@ -1,0 +1,21 @@
+﻿@model AuthorUpdateViewModel
+
+<h3>Yazar Güncelleme Sayfası</h3>
+
+<form method="post" asp-controller="Author" asp-action="Update">
+
+    <input asp-for="Id"/>
+
+    <div>
+        <label>Yazar Ad</label>
+        <input asp-for="FirstName" type="text" class="form-control" />
+    </div>
+
+    <div>
+        <label>Yazar Soyad</label>
+        <input asp-for="LastName" type="text" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success mt-2">Güncelle</button>
+
+</form>
